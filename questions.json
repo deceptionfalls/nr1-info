@@ -1,0 +1,74 @@
+{
+    "questions": [
+        {
+            "label": "Existe um mapeamento de todos os processos de trabalho??",
+            "incorrect_answers": [
+                "Não"
+            ],
+            "correct_answer": "Sim"
+        },
+        {
+            "label": "Foram identificados riscos psicossociais (sobrecarga, estresse)?",
+            "incorrect_answers": [
+                "Não"
+            ],
+            "correct_answer": "Sim"
+        },
+        {
+            "label": "Há um canal para os funcionários relatarem perigos?",
+            "incorrect_answers": [
+                "Não"
+            ],
+            "correct_answer": "Sim"
+        },
+        {
+            "label": "Os riscos foram classificados por nível (Baixo, Médio, Alto)?",
+            "incorrect_answers": [
+                "Não"
+            ],
+            "correct_answer": "Sim"
+        },
+        {
+            "label": "Existe um histórico de acidentes ou doenças ocupacionais?",
+            "incorrect_answers": [
+                "Não"
+            ],
+            "correct_answer": "Sim"
+        },
+        {
+            "label": "A empresa monitora o índice de Burnout e absenteísmo?",
+            "incorrect_answers": [
+                "Não"
+            ],
+            "correct_answer": "Sim"
+        },
+        {
+            "label": "Existem medidas para eliminar ou reduzir os riscos encontrados?",
+            "incorrect_answers": [
+                "Não"
+            ],
+            "correct_answer": "Sim"
+        },
+        {
+            "label": "A empresa monitora o índice de Burnout e absenteísmo?",
+            "incorrect_answers": [
+                "Não"
+            ],
+            "correct_answer": "Sim"
+        },
+        {
+            "label": "Há um cronograma de implementação para novas melhorias?",
+            "incorrect_answers": [
+                "Não"
+            ],
+            "correct_answer": "Sim"
+        },
+        {
+            "label": "A empresa oferece suporte psicológico ou pausas preventivas?",
+            "incorrect_answers": [
+                "Não"
+            ],
+            "correct_answer": "Sim"
+        }
+    ]
+}

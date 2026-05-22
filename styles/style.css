@@ -1,0 +1,289 @@
+/* PEX computação em nuvem */
+@import url('https://fonts.googleapis.com/css2?family=Krona+One&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+html {
+  zoom: 0.8;
+}
+
+/* SLIDE */
+
+.descricao {
+  opacity: 0;
+  transform: translateX(-100px);
+  transition:
+    opacity 1s ease,
+    transform 1s ease;
+}
+
+.descricao.show {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* SLIDE */
+
+a,
+a:visited,
+a:hover,
+a:active {
+  text-decoration: none;
+}
+
+:root {
+  --cor-primaria: #091011;
+  --cor-secundaria: #f2f7f8;
+  --cor-terciaria: #3ecbd0;
+  --cor-hover: #134e4f;
+
+  --fonte-primaria: 'Krona One', serif;
+  --fonte-secundaria: 'Montserrat', serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-image: url('/assets/Wallpaper.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-attachment: fixed;
+  background-color: var(--cor-primaria);
+  box-sizing: border-box;
+  color: var(--cor-secundaria);
+}
+
+/* animação ícone casa */
+
+.cabecalho_home {
+  display: flex;
+  text-decoration: none;
+  cursor: pointer;
+  position: relative;
+  justify-content: flex-start;
+}
+
+.cabecalho_home::after {
+  content: '';
+  background-color: var(--cor-terciaria);
+  height: 3px;
+  width: 0%;
+  display: block;
+  transition: width 0.3s;
+  position: absolute;
+  bottom: -5px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.cabecalho_home:hover::after {
+  width: 100%;
+}
+
+.cabecalho_home img {
+  width: 30px;
+  height: auto;
+  display: inline-block;
+}
+
+/* FIM DA ANIMAÇÃO ÍCONE CASA */
+
+.cabecalho_link::after {
+  content: '';
+  background-color: var(--cor-terciaria);
+  height: 3px;
+  width: 0%;
+  display: block;
+  transition: 0.3s;
+  margin: 0 auto;
+}
+
+.cabecalho_link:hover::after {
+  width: 100%;
+}
+
+header {
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+.cabecalho {
+  display: flex;
+  padding: 2% 10%;
+  position: relative;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.cabecalho_menu {
+  display: flex;
+  gap: 25px;
+  margin-left: auto;
+  /* padding-right: 100px; */
+}
+
+.cabecalho_link {
+  font-family: var(--fonte-secundaria);
+  font-weight: 600;
+  font-size: 1.5rem;
+  color: var(--cor-terciaria);
+  text-decoration: none;
+  cursor: pointer;
+  position: relative;
+  justify-content: end;
+}
+
+body {
+  /* height: 100vh; */
+  flex-wrap: wrap;
+  box-sizing: border-box;
+  background-color: var(--cor-primaria);
+  color: var(--cor-secundaria);
+}
+
+.titulo-destaque {
+  color: var(--cor-terciaria);
+}
+
+.quiz {
+  color: var(--cor-terciaria);
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.quiz span {
+  position: relative;
+  display: inline-block;
+}
+
+.quiz span::after {
+  content: '';
+  background-color: var(--cor-terciaria);
+  height: 3px;
+  width: 0%;
+  display: block;
+  transition: 0.3s;
+  margin: 0 auto;
+}
+
+.quiz span:hover::after {
+  width: 100%;
+}
+
+.apresentacao {
+  min-height: 100vh;
+  padding: 5% 15%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.descricao {
+  width: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: var(--fonte-primaria);
+}
+
+.apresentacao_conteudo_titulo {
+  font-size: 3rem;
+  font-family: var(--fonte-primaria);
+  margin: 0 auto;
+  text-align: center;
+}
+
+.apresentacao_conteudo_paragrafo {
+  font-size: 1.5rem;
+  font-family: var(--fonte-secundaria);
+  margin-top: 35px;
+}
+
+/* ----------------------- Animação do Botão Pagina Inicial -----------------------------*/
+button {
+  font-family: inherit;
+  font-size: 20px;
+  background: var(--cor-terciaria);
+  color: white;
+  fill: var(--cor-hover);
+  padding: 0.7em 1em;
+  padding-left: 0.9em;
+  margin-top: 20%;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  border: none;
+  border-radius: 15px;
+  font-weight: 1000;
+}
+
+button span {
+  display: block;
+  margin-left: 0.3em;
+  transition: all 0.3s ease-in-out;
+}
+
+button svg {
+  display: block;
+  transform-origin: center center;
+  transition: transform 0.3s ease-in-out;
+}
+
+button:hover {
+  background: var(--cor-hover);
+}
+
+button:hover .svg-wrapper {
+  transform: scale(1.7);
+  transition: 0.5s linear;
+}
+
+button:hover svg {
+  transform: translateX(2.25em) scale(1.1);
+  fill: #fff;
+}
+
+button:hover span {
+  opacity: 0;
+  transition: 0.5s linear;
+}
+
+button:active {
+  transform: scale(0.95);
+}
+
+/* ----------------------------- Término da animação ----------------------------- */
+
+/* RODAPÉ */
+
+.rodape {
+  margin-top: 53px;
+  padding: 10px;
+  color: var(--cor-secundaria);
+  font-family: var(--fonte-secundaria);
+  font-size: 0.95rem;
+  font-weight: 400;
+  text-align: center;
+  align-items: center;
+}
+
+@media (max-width: 768px) {
+  .apresentacao {
+    padding: 5% 10%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .apresentacao_conteudo_titulo {
+    font-size: 2rem;
+    margin: 0 auto;
+  }
+}
