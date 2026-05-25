@@ -30,10 +30,10 @@ a:active {
 }
 
 :root {
-  --cor-primaria: #091011;
-  --cor-secundaria: #f2f7f8;
-  --cor-terciaria: #3ecbd0;
-  --cor-hover: #134e4f;
+  --cor-primaria: #100a05;
+  --cor-secundaria: #f2e9e1;
+  --cor-terciaria: #f28e30;
+  --cor-hover: #99581c;
 
   --fonte-primaria: 'Krona One', serif;
   --fonte-secundaria: 'Montserrat', serif;
@@ -46,7 +46,7 @@ a:active {
 }
 
 body {
-  background-image: url('/assets/Wallpaper.jpg');
+  background-image: url('/assets/Wallpaper.png');
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;

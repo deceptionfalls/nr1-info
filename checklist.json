@@ -1,0 +1,32 @@
+{
+    "title": "Checklist de Conformidade",
+    "items": [
+        {
+            "label": "Existe um mapeamento de todos os processos de trabalho?"
+        },
+        {
+            "label": "Foram identificados riscos psicossociais (sobrecarga, estresse)?"
+        },
+        {
+            "label": "Há um canal para os funcionários relatarem perigos?"
+        },
+        {
+            "label": "Os riscos foram classificados por nível (Baixo, Médio, Alto)?"
+        },
+        {
+            "label": "Existe um histórico de acidentes ou doenças ocupacionais?"
+        },
+        {
+            "label": "A empresa monitora o índice de Burnout e absenteísmo?"
+        },
+        {
+            "label": "Existem medidas para eliminar ou reduzir os riscos encontrados?"
+        },
+        {
+            "label": "Há um cronograma de implementação para novas melhorias?"
+        },
+        {
+            "label": "A empresa oferece suporte psicológico ou pausas preventivas?"
+        }
+    ]
+}

@@ -3,10 +3,10 @@ html {
 }
 
 :root {
-  --cor-primaria: #091011;
-  --cor-secundaria: #f2f7f8;
-  --cor-terciaria: #3ecbd0;
-  --cor-hover: #134e4f;
+  --cor-primaria: #100a05;
+  --cor-secundaria: #f2e9e1;
+  --cor-terciaria: #f28e30;
+  --cor-hover: #99581c;
   --cor-correta: #5aab35;
   --cor-incorreta: #d53939;
 
@@ -15,7 +15,7 @@ html {
 }
 
 body {
-  background-image: url('/assets/Wallpaper.jpg');
+  background-image: url('/assets/Wallpaper.png');
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
@@ -95,6 +95,12 @@ body {
   border: 2px solid var(--cor-incorreta) !important;
   color: var(--cor-incorreta);
   background-color: rgba(235, 37, 37, 0.3);
+}
+
+.question .answer-container.neutra {
+  border: 2px solid #777 !important;
+  color: #bbb;
+  background-color: rgba(120, 120, 120, 0.2);
 }
 
 strong {

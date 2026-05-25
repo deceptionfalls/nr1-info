@@ -34,10 +34,10 @@ a:active {
 }
 
 :root {
-  --cor-primaria: #091011;
-  --cor-secundaria: #f2f7f8;
-  --cor-terciaria: #3ecbd0;
-  --cor-hover: #134e4f;
+  --cor-primaria: #100a05;
+  --cor-secundaria: #f2e9e1;
+  --cor-terciaria: #f28e30;
+  --cor-hover: #99581c;
 
   --fonte-primaria: 'Krona One', serif;
   --fonte-secundaria: 'Montserrat', serif;
@@ -50,7 +50,7 @@ a:active {
 }
 
 body {
-  background-image: url('/assets/nuuvem1.jpg');
+  background-image: url('/assets/nuuvem1.png');
   background-size: cover;
   background-position: top;
   background-repeat: no-repeat;
@@ -293,7 +293,7 @@ body {
     border: 0px;  FAZ O BOTÃO SUMIR DEPOIS QUE CLICA
 }*/
 
-.button:focus > .svg {
+.button:focus>.svg {
   display: none;
   height: 0px;
 }
@@ -927,5 +927,26 @@ button:active {
   .apresentacao_conteudo_titulo {
     font-size: 1.8rem;
     line-height: 1.4;
+  }
+}
+
+#qrcode {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: min(90vw, 500px);
+  height: auto;
+
+  margin: 3rem auto;
+
+  object-fit: contain;
+}
+
+/* mobile */
+@media (max-width: 768px) {
+  #qrcode {
+    width: min(95vw, 350px);
+    margin: 2rem auto;
   }
 }

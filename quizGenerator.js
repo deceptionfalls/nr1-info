@@ -1,95 +1,117 @@
-fetch('questions.json') // inicializando JSON
+fetch('checklist.json')
   .then((response) => response.json())
   .then((data) => {
-    let currentQuestionIndex = 0 // índice da questão atual
-    let correctlyAnsweredQuestions = 0 // contador de questões respondidas corretamente
-    const quizContainer = document.createElement('div') // criando o container principal para o quiz
-    document.body.appendChild(quizContainer) // adicionando o container ao corpo do documento
+    const container = document.createElement('div')
+    container.classList.add('question')
 
-    function showQuestion(index) {
-      quizContainer.innerHTML = ''
-      const question = data.questions[index]
+    document.body.appendChild(container)
 
-      // container para a questão atual
-      const questionContainer = document.createElement('div')
-      questionContainer.classList.add('question')
+    // título
+    const title = document.createElement('p')
+    title.textContent = data.title
 
-      // texto da questão
-      const questionLabel = document.createElement('p')
-      questionLabel.textContent = `${index + 1}. ${question.label}`
-      questionContainer.appendChild(questionLabel)
+    container.appendChild(title)
 
-      // respostas aleatórias
-      const answers = [...question.incorrect_answers, question.correct_answer]
-      // answers.sort(() => Math.random() - 0.5)
+    // renderiza todos os itens
+    data.items.forEach((item, index) => {
+      const itemTitle = document.createElement('p')
+      itemTitle.style.fontSize = '1.2rem'
+      itemTitle.style.marginTop = '2rem'
+      itemTitle.style.marginBottom = '1rem'
+      itemTitle.textContent = `${index + 1}. ${item.label}`
 
-      // loop pra criar as perguntas
-      answers.forEach((answer) => {
+      container.appendChild(itemTitle)
+
+      const options = ['Concluído', 'Parcial', 'Não iniciado', 'Não se aplica']
+
+      options.forEach((option) => {
         const answerContainer = document.createElement('div')
         answerContainer.classList.add('answer-container')
 
         const radio = document.createElement('input')
         radio.type = 'radio'
-        radio.name = `question-${index}`
-        radio.value = answer
+        radio.name = `item-${index}`
+        radio.value = option
 
         const label = document.createElement('label')
-        label.textContent = answer
+        label.textContent = option
 
-        // evento que ativa quando o usuário seleciona uma resposta
+        // feedback visual
         radio.addEventListener('change', () => {
-          const isCorrect = answer === question.correct_answer
-          console.log(isCorrect)
-
-          const allInputs = document.querySelectorAll(
-            `input[name='question-${index}']`,
+          const allOptions = document.querySelectorAll(
+            `input[name="item-${index}"]`,
           )
-          allInputs.forEach((input) => (input.disabled = true))
 
-          // Aplica classe correta ou incorreta no container
-          if (isCorrect == true) {
+          allOptions.forEach((input) => {
+            input.parentElement.classList.remove(
+              'correta',
+              'incorreta',
+              'neutra',
+            )
+          })
+
+          if (option === 'Concluído') {
             answerContainer.classList.add('correta')
-            correctlyAnsweredQuestions++
+          } else if (option === 'Não se aplica') {
+            answerContainer.classList.add('neutra')
           } else {
             answerContainer.classList.add('incorreta')
           }
-
-          currentQuestionIndex++
-
-          // Mostra visualmente a correta também
-          questionContainer
-            .querySelectorAll('.answer-container')
-            .forEach((container) => {
-              const label = container.querySelector('label')
-              if (label.textContent === question.correct_answer) {
-                container.classList.add('correta')
-              }
-            })
-
-          // esperar ~1 segundo após responder a questão
-          setTimeout(() => {
-            quizContainer.classList.add('question')
-            // veja se ainda tem questões para responder
-            if (currentQuestionIndex < data.questions.length) {
-              showQuestion(currentQuestionIndex) // passa para a próxima questão
-            } else if (correctlyAnsweredQuestions <= 0) {
-              quizContainer.innerHTML = `<p>Atenção: Você possui riscos críticos não monitorados!</p>`
-            } else if (correctlyAnsweredQuestions === 10) {
-              quizContainer.innerHTML = `<p>Sua empresa está em conformidade! <br>Você atende todos os critérios.</p>`
-            } else {
-              quizContainer.innerHTML = `<p>Sua empresa está em comforfmidade, mas ainda faltam alguns critérios<br>Você atende <strong>${correctlyAnsweredQuestions}</strong> de <strong>${data.questions.length}</strong> critérios no total.</p>`
-            }
-          }, 900)
         })
 
         answerContainer.appendChild(radio)
         answerContainer.appendChild(label)
-        questionContainer.appendChild(answerContainer)
+
+        container.appendChild(answerContainer)
+      })
+    })
+
+    // botão finalizar
+    const finishButton = document.createElement('button')
+
+    finishButton.textContent = 'Finalizar Checklist'
+
+    finishButton.style.fontFamily = 'var(--fonte-secundaria)'
+    finishButton.style.marginTop = '2rem'
+    finishButton.style.padding = '1rem 2rem'
+    finishButton.style.borderRadius = '12px'
+    finishButton.style.border = 'none'
+    finishButton.style.cursor = 'pointer'
+    finishButton.style.fontWeight = 'bold'
+    finishButton.style.backgroundColor = 'var(--cor-terciaria)'
+    finishButton.style.color = 'var(--cor-primaria)'
+
+    finishButton.addEventListener('click', () => {
+      const results = []
+
+      data.items.forEach((item, index) => {
+        const selected = document.querySelector(
+          `input[name="item-${index}"]:checked`,
+        )
+
+        results.push({
+          item: item.label,
+          status: selected ? selected.value : 'Sem resposta',
+        })
       })
 
-      quizContainer.appendChild(questionContainer)
-    }
+      const completed = results.filter((r) => r.status === 'Concluído').length
 
-    showQuestion(currentQuestionIndex)
+      container.innerHTML = `
+        <p>
+          Checklist concluída.<br><br>
+
+          Você concluiu
+          <strong>${completed}</strong>
+          de
+          <strong>${results.length}</strong>
+          critérios.
+        </p>
+      `
+    })
+
+    container.appendChild(finishButton)
   })
-  .catch((error) => console.error('Erro em obter o arquivo JSON:', error))
+  .catch((error) => {
+    console.error('Erro ao carregar checklist:', error)
+  })
